@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm> // For std::all_of
+#include <cctype>    // For std::isdigit
 
 class Contact {
 	public:

@@ -9,10 +9,14 @@ int main(void)
 	int		positionOfContact = 0;
 	do {
 		std::cout << "Insert a command (ADD, SEARCH, EXIT)" << std::endl;
-		std::cin >> command;
+		std::getline(std::cin, command);
+		if (std::cin.eof()){
+			std::cout << std::endl << "End of file was reached! Exiting program" << std::endl;
+			exit(1);
+		}
 		if(!command.compare("ADD")) {
 			contactList.addContact(positionOfContact);
-			if (positionOfContact <= 8)
+			if (positionOfContact <= NCONTACTS - 1)
 				positionOfContact++;
 		} else if (!command.compare("SEARCH")) {
 			contactList.searchContacts(positionOfContact);
