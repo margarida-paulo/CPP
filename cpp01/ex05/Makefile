@@ -1,6 +1,6 @@
-NAME = Brains
+NAME = Harl
 
-SRC = 
+SRC = Harl.cpp
 
 MAIN = main.cpp
 
@@ -17,7 +17,7 @@ all : ${NAME}
 
 ${NAME}: ${OBJ}
 	@echo "Compiling into object files"
-	@$(CC) $(STANDARD_FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "Compiled successfuly!"
 
 clean:

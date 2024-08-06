@@ -17,12 +17,17 @@ all : ${NAME}
 
 ${NAME}: ${OBJ}
 	@echo "Compiling into object files"
-	@${CC} ${FLAGS} ${SRC} ${MAIN} -o ${NAME} > /dev/null
+	@$(CC) $(STANDARD_FLAGS) $(OBJ) -o $(NAME)
 	@echo "Compiled successfuly!"
 
-fclean :
-	rm -rf ${NAME}
+clean:
+	@rm -rf ${OBJ}
+	@echo "Object files deleted."
+
+fclean : clean
+	@rm -rf ${NAME}
+	@echo "Object files and executable deleted."
 
 re:
-	make fclean
-	c++ ${FLAGS} ${SRC} ${MAIN} -o ${NAME}
+	@make fclean
+	@make
