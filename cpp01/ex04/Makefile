@@ -2,7 +2,7 @@ NAME = Replace
 
 SRC =
 
-MAIN = main.cpp
+MAIN = main.cpp replace.cpp
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 

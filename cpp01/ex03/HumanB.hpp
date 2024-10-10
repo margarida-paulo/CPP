@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maggie <maggie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvalerio <mvalerio@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:33:10 by maggie            #+#    #+#             */
-/*   Updated: 2024/08/04 19:43:22 by maggie           ###   ########.fr       */
+/*   Updated: 2024/10/10 13:00:35 by mvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 #include "Weapon.hpp"
 
 class HumanB{
+
+	private:
+	std::string name;
+	Weapon *weapon;
+
 	public:
-	HumanB();
 	HumanB(std::string name);
 	~HumanB();
-	std::string name;
-	Weapon *weapon;	
 	void attack();
-	void setWeapon(Weapon &weapon);
+	void setWeapon(Weapon *weapon);
 };
 
 #endif

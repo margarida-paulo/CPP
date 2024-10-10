@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maggie <maggie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvalerio <mvalerio@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 17:58:12 by maggie            #+#    #+#             */
-/*   Updated: 2024/08/04 17:58:13 by maggie           ###   ########.fr       */
+/*   Updated: 2024/10/10 12:06:48 by mvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main ( void ){
 	randomChump("Pouya");
-	Zombie *maggie = newZombie("Maggie");
-	maggie->announce();
-	delete maggie;
+	Zombie *one = newZombie("One");
+	one->announce();
+	delete one;
 }
