@@ -1,14 +1,5 @@
 #include <iostream>
-#include <string>
-
-std::string charArrayToString(char *charArray)
-{
-	std::string finalString = "";
-	for (int i = 0; charArray[i]; i++){
-		finalString += charArray[i];
-	}
-	return finalString;
-}
+#include <cstring>
 
 void toUpperCase(std::string &stringToConvert)
 {
@@ -24,7 +15,7 @@ int	main(int argc, char **argv){
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	} else {
 		for (int i = 1; i < argc; i++) {
-			std::string word = charArrayToString(argv[i]);
+			std::string word(argv[i]);
 			toUpperCase(word);
 			std::cout << word;
 		}

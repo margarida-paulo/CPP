@@ -1,15 +1,33 @@
 NAME = Bank
 
+CC = c++
+
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = Account.cpp
+SRC = Account.cpp tests.cpp
 
-MAIN = tests.cpp
+OBJ = $(SRC:.cpp=.o)
 
-HEADERS = Contact.hpp PhoneBook.hpp
+%.o: %.cpp
+	@$(CC) $(FLAGS) -o $@ -c $<
 
-all :
-	c++ ${FLAGS} ${SRC} ${MAIN} -o ${NAME}
+HEADERS = Account.hpp
 
-fclean :
-	rm -rf ${NAME}
+all : ${NAME}
+
+${NAME}: ${OBJ}
+	@echo "Compiling into object files"
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "Compiled successfuly!"
+
+clean:
+	@rm -rf ${OBJ}
+	@echo "Object files deleted."
+
+fclean : clean
+	@rm -rf ${NAME}
+	@echo "Executable deleted."
+
+re:
+	@make fclean
+	@make
