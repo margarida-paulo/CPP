@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maggie <maggie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvalerio <mvalerio@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:07:02 by maggie            #+#    #+#             */
-/*   Updated: 2024/08/07 13:12:52 by maggie           ###   ########.fr       */
+/*   Updated: 2024/10/29 09:41:46 by mvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // These are the statics with the functions of Harl. This makes it so that if
 // we want to add more functions to Harl, we can just add them here.
 
-std::string Harl::complaintType[NUMFUNCTIONS] = {"Debug", "Info", "Warning", "Error"};
+std::string Harl::complaintType[NUMFUNCTIONS] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 HarlFunctions Harl::complaint[NUMFUNCTIONS] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 Harl::Harl(){
@@ -27,7 +27,7 @@ Harl::~Harl(){
 }
 
 void Harl::debug( void ){
-	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
 void Harl::info( void ){
@@ -41,6 +41,7 @@ void Harl::warning( void ){
 void Harl::error( void ){
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
+
 
 void Harl::complain( std::string level ){
 	for (size_t i = 0; i < sizeof(complaintType) / sizeof(complaintType[0]); i++){
