@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maggie <maggie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvalerio <mvalerio@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:43:39 by maggie            #+#    #+#             */
-/*   Updated: 2024/08/07 13:51:12 by maggie           ###   ########.fr       */
+/*   Updated: 2024/10/29 09:47:54 by mvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv){
 	if (argc != 2){
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		return (0);
-	}	
+	}
 	std::string complaint(argv[1]);
 	Harl john;
 	int currentSaying = NUMFUNCTIONS;
@@ -26,19 +26,19 @@ int main(int argc, char **argv){
 	}
 	switch (currentSaying){
 		case (DEBUG):
-			john.complain("Debug");
+			john.complain("DEBUG");
 			// fall through
 		case (INFO):
-			john.complain("Info");
+			john.complain("INFO");
 			// fall through
 		case (WARNING):
-			john.complain("Warning");
+			john.complain("WARNING");
 			// fall through
 		case (ERROR):
-			john.complain("Error");
+			john.complain("ERROR");
 			break;
 		default :
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
-	
+
 }
