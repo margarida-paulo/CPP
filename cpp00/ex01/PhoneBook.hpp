@@ -1,5 +1,5 @@
 #ifndef PHONEBOOK
-#define PHONEBOOK
+# define PHONEBOOK
 
 #include "Contact.hpp"
 #include <iostream>

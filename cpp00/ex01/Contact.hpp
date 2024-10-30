@@ -1,5 +1,5 @@
 #ifndef CONTACT
-#define CONTACT
+# define CONTACT
 
 #include <string>
 #include <iostream>
