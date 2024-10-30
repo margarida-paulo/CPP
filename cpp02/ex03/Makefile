@@ -1,12 +1,12 @@
 NAME = a.out
 
-SRC = Fixed.cpp
+SRC = Fixed.cpp Point.cpp bsp.cpp
 
 MAIN = main.cpp
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
+OBJ = $(MAIN:.cpp=.o) $(SRC:.cpp=.o)
 
 CC = c++
 

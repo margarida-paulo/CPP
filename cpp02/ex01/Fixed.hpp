@@ -1,3 +1,5 @@
+#ifndef FIXED
+# define FIXED
 #include <iostream>
 #include<cmath>
 
@@ -35,3 +37,5 @@ class Fixed {
 			//para conseguir ter acessoaos atributos privados.
 			friend std::ostream& operator<<(std::ostream& osb, const Fixed& number);
 };
+
+#endif

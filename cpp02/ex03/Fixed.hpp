@@ -1,3 +1,6 @@
+#ifndef FIXED
+# define FIXED
+
 #include <iostream>
 #include<cmath>
 
@@ -61,12 +64,11 @@ class Fixed {
 
 
 		static Fixed &min(Fixed &number1, Fixed &number2);
-
 		static Fixed &min(Fixed const &number1, Fixed const &number2);
-
 		static Fixed &max(Fixed &number1, Fixed &number2);
-
 		static Fixed &max(Fixed const &number1, Fixed const &number2);
 
-
+		static Fixed &absFixed(Fixed &number);
 };
+
+# endif

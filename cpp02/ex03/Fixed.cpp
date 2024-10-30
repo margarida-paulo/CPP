@@ -1,19 +1,19 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
-	std::cout << ("Default constructor called") << std::endl;
+	//std::cout << ("Default constructor called") << std::endl;
 	this->_value = 0;
 }
 
 Fixed::Fixed(const Fixed &number){
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = number;
 }
 
 /*For integers, we can directly shift the bits to get the fixed
 point values*/
 Fixed::Fixed(int const intValue){
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	this->_value = intValue  << _fracBits;
 }
 
@@ -28,17 +28,17 @@ We cannot do it like with integers cause, for floats, bit shifting
 doesn't work.
 */
 Fixed::Fixed(float const floatValue){
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	this->_value = static_cast<int> (roundf(floatValue * (1 << _fracBits)));
 }
 
 int Fixed::getRawBits(void) const{
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return this->_value;
 }
 
 Fixed& Fixed::operator=(Fixed const &otherNumber){
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &otherNumber)
 		return *this;
 	this->_value = otherNumber._value;
@@ -47,11 +47,11 @@ Fixed& Fixed::operator=(Fixed const &otherNumber){
 
 
 Fixed::~Fixed(){
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 void Fixed::setRawBits(int const raw){
-	std::cout << "setRawBits member function called" << std::endl;
+	//std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
 
@@ -109,13 +109,13 @@ Fixed Fixed::operator-(const Fixed otherNumber) const{
 
 Fixed Fixed::operator*(const Fixed otherNumber) const{
 	Fixed newNumber;
-	newNumber._value = (this->_value * otherNumber._value >> _fracBits);
+	newNumber._value = ((this->_value * otherNumber._value) >> _fracBits);
 	return newNumber;
 }
 
 Fixed Fixed::operator/(const Fixed otherNumber) const{
 	Fixed newNumber;
-	newNumber._value = (this->_value <<_fracBits / otherNumber._value);
+	newNumber._value = ((this->_value <<_fracBits) / otherNumber._value);
 	return newNumber;
 }
 
@@ -163,4 +163,9 @@ Fixed &Fixed::max(Fixed &number1, Fixed &number2){
 
 Fixed &Fixed::max(Fixed const &number1, Fixed const &number2){
 	return (number1._value > number2._value) ? const_cast<Fixed &>(number1) : const_cast<Fixed &>(number2);
+}
+
+Fixed &Fixed::absFixed(Fixed &number){
+	number._value = abs(number._value);
+	return number;
 }

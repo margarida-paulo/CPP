@@ -109,13 +109,13 @@ Fixed Fixed::operator-(const Fixed otherNumber) const{
 
 Fixed Fixed::operator*(const Fixed otherNumber) const{
 	Fixed newNumber;
-	newNumber._value = (this->_value * otherNumber._value >> _fracBits);
+	newNumber._value = ((this->_value * otherNumber._value) >> _fracBits);
 	return newNumber;
 }
 
 Fixed Fixed::operator/(const Fixed otherNumber) const{
 	Fixed newNumber;
-	newNumber._value = (this->_value <<_fracBits / otherNumber._value);
+	newNumber._value = ((this->_value <<_fracBits) / otherNumber._value);
 	return newNumber;
 }
 

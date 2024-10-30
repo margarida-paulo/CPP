@@ -1,3 +1,6 @@
+#ifndef FIXED
+# define FIXED
+
 #include <iostream>
 #include<cmath>
 
@@ -70,3 +73,6 @@ class Fixed {
 
 
 };
+
+
+#endif
