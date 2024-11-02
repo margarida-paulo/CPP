@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(){
 }
 
 ClapTrap::ClapTrap(std::string name){
-	std::cout << "ClapTrap's name constructor was called" << std::endl;
+	std::cout << "ClapTrap's name constructor was called (" << name << ")" << std::endl;
 	this->_name = name;
 	_hitPoints = 10;
 	_energyPoints = 10;

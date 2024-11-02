@@ -1,10 +1,10 @@
-NAME = scavTrap
+NAME = diamondTrap
 
 CC = c++
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = ClapTrap.cpp ScavTrap.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 MAIN = main.cpp
 
