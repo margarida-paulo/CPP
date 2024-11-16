@@ -42,7 +42,8 @@ std::string PhoneBook::getValidInput(std::string prompt, bool isPhone){
 	while(!std::cin.eof() && (!validatePhoneNumber(input, isPhone) || input.length() == 0));
 	if (std::cin.eof()){
 		std::cout << std::endl << "End of file was reached! Exiting program" << std::endl;
-		exit(1);
+		return input;
+		//exit(1);
 	}
 	return (input);
 }
@@ -104,7 +105,8 @@ void PhoneBook::searchContacts(int position){
 		std::cout << "There is no contact with this index." << std::endl;
 		if (std::cin.eof()){
 			std::cout << std::endl << "End of file was reached! Exiting program" << std::endl;
-			exit(1);
+			return;
+			//exit(1);
 		}
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
@@ -112,7 +114,8 @@ void PhoneBook::searchContacts(int position){
 	} else {
 		if (std::cin.eof()){
 			std::cout << std::endl << "End of file was reached! Exiting program" << std::endl;
-			exit(1);
+			return;
+			//exit(1);
 		}
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');

@@ -12,7 +12,7 @@ int main(void)
 		std::getline(std::cin, command);
 		if (std::cin.eof()){
 			std::cout << std::endl << "End of file was reached! Exiting program" << std::endl;
-			exit(1);
+			return (1);
 		}
 		if(!command.compare("ADD")) {
 			contactList.addContact(positionOfContact);
