@@ -7,6 +7,7 @@
 int main()
 {
 	Animal *animais[10];
+	Animal test;
 	for (int i = 0; i < 10; i++){
 		if (i % 2 == 0)
 			animais[i] = new Cat();
