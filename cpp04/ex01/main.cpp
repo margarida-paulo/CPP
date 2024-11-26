@@ -6,8 +6,17 @@
 
 int main()
 {
-//	Animal *animais[10];
-//	for (int i = 0; i < 5; i++){
-//		animais[i] = new Cat();
-//	}
+	Animal *animais[2];
+	for (int i = 0; i < 2; i++){
+		if (i % 2 == 0)
+			animais[i] = new Cat();
+		else
+			animais[i] = new Dog();
+	}
+
+	for (int i = 0; i < 2; i++)
+		animais[i]->makeSound();
+
+	for (int i = 0; i < 2; i++)
+		delete animais[i];
 }

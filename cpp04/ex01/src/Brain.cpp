@@ -20,3 +20,7 @@ Brain::~Brain(){
 	delete[] ideas;
 	std::cout << "Brain was destroyed!" << std::endl;
 }
+
+void Brain::setIdea(std::string idea, int index){
+	ideas[index] = idea;
+}

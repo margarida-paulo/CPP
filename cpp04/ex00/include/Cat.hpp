@@ -1,10 +1,10 @@
 #ifndef CAT
 # define CAT
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
-class Cat : public WrongAnimal{
+class Cat : public Animal{
 	public:
 		Cat();
 		Cat(const Cat &other);

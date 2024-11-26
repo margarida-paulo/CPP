@@ -1,11 +1,11 @@
 #ifndef CAT
 # define CAT
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 #include "Brain.hpp"
 #include <iostream>
 
-class Cat : public WrongAnimal{
+class Cat : public Animal{
 	private:
 		Brain *brain;
 

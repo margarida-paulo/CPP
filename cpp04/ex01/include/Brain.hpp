@@ -12,6 +12,7 @@ class Brain{
 		Brain(Brain &other);
 		Brain &operator=(const Brain &other);
 		~Brain();
+		void setIdea(std::string idea, int index);
 };
 
 #endif

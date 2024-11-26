@@ -9,7 +9,9 @@ Cat::Cat(){
 Cat::Cat(const Cat &other){
 	std::cout << "Cat was created with a copy constructor." << std::endl;
 	type = other.type;
-	brain = other.brain;
+	brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		brain.setIdea(other.brain.getidea(i), i);
 }
 
 Cat::~Cat(){
