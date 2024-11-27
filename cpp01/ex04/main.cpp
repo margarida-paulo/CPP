@@ -6,7 +6,7 @@
 /*   By: mvalerio <mvalerio@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 19:52:46 by maggie            #+#    #+#             */
-/*   Updated: 2024/10/10 13:54:50 by mvalerio         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:50:14 by mvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int main(int argc, char **argv){
 	if (argc != 4){
-		std::cout << "Incorrect number of arguments" << std::endl;
+		std::cout << "Incorrect number of arguments." << std::endl;
+		std::cout << "Correct usage:" << std::endl;
+		std::cout << "./Replace [FILE_NAME] [STRING_TO_REPLACE] [REPLACEMENT_STRING]" << std::endl;
 		return (EXIT_FAILURE);
 	}
 
@@ -24,21 +26,27 @@ int main(int argc, char **argv){
 
 	std::ifstream inputFile(filename.c_str());
 	if (!inputFile.is_open()){
-		std::cerr << "Failed to open the input file " << filename << std::endl;
+		std::cerr << "Failed to open the input file " << filename << "." << std::endl;
+		return (EXIT_FAILURE);
+	}
+	if (inputFile.peek() == EOF){
+		std::cerr << "The input file " << filename << " is empty, so there is nothing to replace." << std::endl;
 		return (EXIT_FAILURE);
 	}
 
 	std::string finalFileName(filename + ".replace");
 	std::ofstream outputFile(finalFileName.c_str());
 	if (!outputFile.is_open()){
-		std::cerr << "Failed to create the output file " << finalFileName << std::endl;
+		std::cerr << "Failed to create the output file " << finalFileName << "." << std::endl;
 		return (EXIT_FAILURE);
 	}
 
 	std::string buffer;
+	bool	hasChanged = false;
 	while (getline(inputFile, buffer)){
 		if (!buffer.empty()){
-			findAndReplace(buffer, s1, s2);
+			if (findAndReplace(buffer, s1, s2))
+				hasChanged = true;
 			outputFile << buffer;
 		}
 		if (!inputFile.eof()) {
@@ -46,7 +54,10 @@ int main(int argc, char **argv){
 		}
 	}
 
-	std::cout << std::endl << "Replacements made successfully. Check your file in " << finalFileName << std::endl;
+	if (hasChanged == true)
+		std::cout << "Replacements made successfully. Check your file in " << finalFileName << "." << std::endl;
+	else
+		std::cout << "No replacements to make. The file " << finalFileName << " is just a copy of the original file." << std::endl;
 
 	inputFile.close();
 	outputFile.close();
