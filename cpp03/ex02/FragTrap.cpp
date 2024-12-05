@@ -13,7 +13,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name){
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
-	this->_attackDamage = 30;	
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap(FragTrap &other){
@@ -42,4 +42,13 @@ void FragTrap::highFivesGuys(void){
 
 std::string FragTrap:: type() const{
 	return "FragTrap";
+}
+
+void FragTrap::showStats(){
+	std::cout << std::endl;
+	std::cout << "FragTrap " + _name<< std::endl;
+	std::cout << "Hit points: " << _hitPoints <<std::endl;
+	std::cout <<"Energy points: " << _energyPoints << std::endl;
+	std::cout <<"Attack damage: " << _attackDamage << std::endl;
+	std::cout << std::endl;
 }

@@ -7,6 +7,9 @@
 from multiple ClapTrap subclasses, there is only one instance
 of ClapTrap, avoiding the diamond problem.*/
 class ScavTrap: public virtual ClapTrap{
+	protected:
+		int _scavAttackDamage;
+
 	public:
 		ScavTrap();
 		ScavTrap(ScavTrap &scavTrap);
@@ -16,7 +19,7 @@ class ScavTrap: public virtual ClapTrap{
 		void guardGate();
 		std::string type() const;
 		void attack(const std::string& target);
-
+		void showStats();
 };
 
 #endif

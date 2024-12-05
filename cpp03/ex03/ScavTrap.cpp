@@ -4,25 +4,25 @@ std::string ScavTrap:: type() const{
 	return "ScavTrap";
 }
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap(): ClapTrap(), _scavAttackDamage(20){
 	std::cout << "ScavTrap's default constructor was called" << std::endl;
 	this->_hitPoints = 100;
 	this -> _energyPoints = 50;
 	this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap &scavTrap): ClapTrap(scavTrap._name){
+ScavTrap::ScavTrap(ScavTrap &scavTrap): ClapTrap(scavTrap._name), _scavAttackDamage(20){
 	std::cout << "ScavTrap's copy constructor was called" << std::endl;
 	this->_hitPoints = scavTrap._hitPoints;
 	this -> _energyPoints = scavTrap._energyPoints;
 	this->_attackDamage = scavTrap._attackDamage;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name){
+ScavTrap::ScavTrap(std::string name): ClapTrap(name), _scavAttackDamage(20){
 	std::cout << "ScavTrap's name constructor was called (" << name << ")" << std::endl;
 	this->_hitPoints = 100;
 	this -> _energyPoints = 50;
-	this->_attackDamage = 20;	
+	this->_attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap(){
@@ -34,6 +34,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scavTrap){
 	this->_hitPoints = scavTrap._hitPoints;
 	this -> _energyPoints = scavTrap._energyPoints;
 	this->_attackDamage = scavTrap._attackDamage;
+	this->_scavAttackDamage = scavTrap._scavAttackDamage;
 	return *this;
 }
 
@@ -50,3 +51,14 @@ void ScavTrap::attack(const std::string& target){
 	} else
 		std::cout << "ScavTrap " << _name << " doesn't have energy, attack not performed!" << std::endl;
 }
+
+
+void ScavTrap::showStats(){
+	std::cout << std::endl;
+	std::cout << "ScavTrap " + _name<< std::endl;
+	std::cout << "Hit points: " << _hitPoints <<std::endl;
+	std::cout <<"Energy points: " << _energyPoints << std::endl;
+	std::cout <<"Attack damage: " << _attackDamage << std::endl;
+	std::cout << std::endl;
+}
+

@@ -6,6 +6,8 @@ FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = ClapTrap.cpp
 
+INCLUDES = ClapTrap.hpp
+
 MAIN = main.cpp
 
 OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
@@ -17,7 +19,7 @@ HEADERS = Contact.hpp PhoneBook.hpp
 
 all : ${NAME}
 
-${NAME}: ${OBJ}
+${NAME}: ${OBJ} ${INCLUDES}
 	@echo "Compiling into object files"
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "Compiled successfuly!"

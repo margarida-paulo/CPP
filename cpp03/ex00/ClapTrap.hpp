@@ -2,15 +2,16 @@
 # define CLAPTRAP
 
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <iomanip>
+#include <sstream>
 
 class ClapTrap{
 	private:
 		std::string _name;
-		int _hitPoints;
-		int _energyPoints;
-		int _attackDamage;
+		unsigned int _hitPoints;
+		unsigned int _energyPoints;
+		unsigned int _attackDamage;
 
 	public:
 		ClapTrap();

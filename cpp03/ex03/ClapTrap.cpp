@@ -1,27 +1,15 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap() : _name("Default name"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap's default constructor was called" << std::endl;
-	_name = "Default name";
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(std::string name){
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap's name constructor was called (" << name << ")" << std::endl;
-	this->_name = name;
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(ClapTrap &clapTrap){
+ClapTrap::ClapTrap(ClapTrap &clapTrap): _name(clapTrap._name), _hitPoints(clapTrap._hitPoints), _energyPoints(clapTrap._energyPoints), _attackDamage(clapTrap._attackDamage){
 	std::cout << "ClapTrap's copy constructor was called" << std::endl;
-	this->_name = clapTrap._name;
-	this->_hitPoints = clapTrap._hitPoints;
-	this->_energyPoints = clapTrap._energyPoints;
-	this->_attackDamage = clapTrap._attackDamage;
 }
 
 ClapTrap::~ClapTrap(){
@@ -47,7 +35,7 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if(_hitPoints - amount < 0)
+	if(amount > _hitPoints)
 		_hitPoints = 0;
 	else
 		_hitPoints -= amount;
@@ -67,23 +55,12 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 void ClapTrap::showStats(){
-
-	//Calculate maximum width
-	unsigned long width = (this->type() + " " + _name).size() + 1;
-	if (("Hit points: " + std::to_string(_hitPoints)).size() + 1> width)
-		width = ("Hit points: " + std::to_string(_hitPoints)).size() + 1;
-	if (("Energy points: " + std::to_string(_energyPoints)).size() + 1> width)
-		width = ("Energy points: " + std::to_string(_energyPoints)).size() + 1;
-	if (("Attack damage: " + std::to_string(_attackDamage)).size() + 1 > width)
-		width = ("Attack damage: " + std::to_string(_attackDamage)).size() + 1;
-
 	std::cout << std::endl;
-	std::cout << "|" << std::left << std::setw(width) << this->type() + " " + _name << "|" << std::endl;
-	std::cout << "|"  << std::left << std::setw(width) << "Hit points: " + std::to_string(_hitPoints) << "|" << std::endl;
-	std::cout << "|" << std::left << std::setw(width) <<"Energy points: " + std::to_string(_energyPoints) << "|" << std::endl;
-	std::cout << "|" << std::left << std::setw(width) <<"Attack damage: " + std::to_string(_attackDamage) << "|" << std::endl;
-	std::cout << std::right << std::endl;
-
+	std::cout << "ClapTrap " + _name<< std::endl;
+	std::cout << "Hit points: " << _hitPoints <<std::endl;
+	std::cout <<"Energy points: " << _energyPoints << std::endl;
+	std::cout <<"Attack damage: " << _attackDamage << std::endl;
+	std::cout << std::endl;
 }
 
 std::string ClapTrap:: type() const{

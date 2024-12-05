@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name){
 	std::cout << "ScavTrap's name constructor was called (" << name << ")" << std::endl;
 	this->_hitPoints = 100;
 	this -> _energyPoints = 50;
-	this->_attackDamage = 20;	
+	this->_attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap(){
@@ -49,4 +49,14 @@ void ScavTrap::attack(const std::string& target){
 			std::cout << "ScavTrap " << _name << " is dead, attack not performed!" << std::endl;
 	} else
 		std::cout << "ScavTrap " << _name << " doesn't have energy, attack not performed!" << std::endl;
+}
+
+void ScavTrap::showStats(){
+	std::cout << std::endl;
+	std::cout << "ScavTrap " + _name<< std::endl;
+	std::cout << "Hit points: " << _hitPoints <<std::endl;
+	std::cout <<"Energy points: " << _energyPoints << std::endl;
+	std::cout <<"Attack damage: " << _attackDamage << std::endl;
+	std::cout << std::endl;
+
 }

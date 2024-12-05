@@ -47,7 +47,7 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if(_hitPoints - amount < 0)
+	if(amount > _hitPoints)
 		_hitPoints = 0;
 	else
 		_hitPoints -= amount;
@@ -67,22 +67,12 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 void ClapTrap::showStats(){
-
-	//Calculate maximum width
-	unsigned long width = (this->type() + " " + _name).size() + 1;
-	if (("Hit points: " + std::to_string(_hitPoints)).size() + 1> width)
-		width = ("Hit points: " + std::to_string(_hitPoints)).size() + 1;
-	if (("Energy points: " + std::to_string(_energyPoints)).size() + 1> width)
-		width = ("Energy points: " + std::to_string(_energyPoints)).size() + 1;
-	if (("Attack damage: " + std::to_string(_attackDamage)).size() + 1 > width)
-		width = ("Attack damage: " + std::to_string(_attackDamage)).size() + 1;
-
 	std::cout << std::endl;
-	std::cout << "|" << std::left << std::setw(width) << this->type() + " " + _name << "|" << std::endl;
-	std::cout << "|"  << std::left << std::setw(width) << "Hit points: " + std::to_string(_hitPoints) << "|" << std::endl;
-	std::cout << "|" << std::left << std::setw(width) <<"Energy points: " + std::to_string(_energyPoints) << "|" << std::endl;
-	std::cout << "|" << std::left << std::setw(width) <<"Attack damage: " + std::to_string(_attackDamage) << "|" << std::endl;
-	std::cout << std::right << std::endl;
+	std::cout << "ClapTrap " + _name<< std::endl;
+	std::cout << "Hit points: " << _hitPoints <<std::endl;
+	std::cout <<"Energy points: " << _energyPoints << std::endl;
+	std::cout <<"Attack damage: " << _attackDamage << std::endl;
+	std::cout << std::endl;
 
 }
 
