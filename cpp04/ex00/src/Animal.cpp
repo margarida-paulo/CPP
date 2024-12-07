@@ -25,5 +25,5 @@ std::string Animal::getType() const{
 }
 
 void Animal::makeSound() const{
-	std::cout << "I am having an existencial crisis, I don't know what animal I am, so I don't know what sound to make..." << std::endl;
+	std::cout << "*I am having an existencial crisis, I don't know what animal I am, so I don't know what sound to make...*" << std::endl;
 }

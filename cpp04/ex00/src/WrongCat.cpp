@@ -16,7 +16,8 @@ WrongCat::~WrongCat(){
 
 WrongCat &WrongCat::operator=(const WrongCat &other){
 	std::cout << "WrongCat was initialized with attributes of another WrongCat." << std::endl;
-	type = other.type;
+	if (this != &other)
+		type = other.type;
 	return *this;
 }
 

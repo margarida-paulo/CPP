@@ -16,7 +16,8 @@ WrongAnimal::~WrongAnimal(){
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other){
 	std::cout << "WrongAnimal was initialized with attributes of another WrongAnimal." << std::endl;
-	type = other.type;
+	if (this != &other)
+		type = other.type;
 	return *this;
 }
 

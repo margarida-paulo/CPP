@@ -22,8 +22,10 @@ Dog::~Dog(){
 Dog &Dog::operator=(const Dog &other){
 	std::cout << "Dog was initialized with attributes of another dog." << std::endl;
 	type = other.type;
-	for (int i = 0; i < 100; i++)
-		this->brain->setIdea(other.brain->getIdea(i), i);
+	if (this != &other){
+		for (int i = 0; i < 100; i++)
+			this->brain->setIdea(other.brain->getIdea(i), i);
+	}
 	return *this;
 }
 

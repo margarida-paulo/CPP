@@ -4,7 +4,7 @@
 #include "include/WrongAnimal.hpp"
 #include "include/WrongCat.hpp"
 
-/* int main()
+int main()
 {
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
@@ -17,9 +17,18 @@
 	delete meta;
 	delete j;
 	delete i;
-} */
 
-int main()
+
+	const WrongAnimal* wrong1 = new WrongAnimal();
+	const WrongAnimal* wrong2 = new WrongCat();
+	std::cout << wrong1->getType() << " " << std::endl;
+	wrong1->makeSound(); //will output the cat sound!
+	wrong2->makeSound();
+	delete wrong1;
+	delete wrong2;
+}
+
+/* int main()
 {
 	const WrongAnimal* meta = new WrongAnimal();
 	const WrongAnimal* i = new WrongCat();
@@ -28,4 +37,4 @@ int main()
 	meta->makeSound();
 	delete meta;
 	delete i;
-}
+} */

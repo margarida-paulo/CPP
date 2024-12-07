@@ -2,7 +2,7 @@ NAME = animal
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -g -std=c++98 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp
 
