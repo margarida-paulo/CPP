@@ -19,17 +19,19 @@ class Array{
         };
         Array();
 
-        Array(unsigned int n);
+        Array(const unsigned int n);
 
-        Array(Array &other);
+        Array(const Array &other);
 
-        Array &operator=(Array &other);
+        Array &operator=(const Array &other);
 
         ~Array();
 
-        T &operator[](unsigned int position);
+        T &operator[](const unsigned int position);
 
-        unsigned int size();
+        const T &operator[](const unsigned int position) const;
+
+        unsigned int size() const;
 };
 
 #include "Array.tpp"

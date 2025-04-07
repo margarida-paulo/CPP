@@ -1,5 +1,19 @@
 #include "whatever.hpp"
 
+/*
+class TestType{
+    public:
+        std::string name;
+        bool operator<(const TestType &other) const{
+            return (this->name < other.name);
+        }
+        bool operator>(const TestType &other) const{
+            return (this->name > other.name);
+        }
+};
+*/
+
+
 int main( void ) {
     int a = 2;
     int b = 3;
@@ -15,3 +29,22 @@ int main( void ) {
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     return 0;
 }
+
+
+/*
+//Testing complex types
+int main(){
+    TestType thingA;
+    TestType thingB;
+    thingA.name = "Hello";
+    thingB.name = "World";
+    std::cout << "Thing A name: " << thingA.name << std::endl;
+    std::cout << "Thing B name: " << thingB.name << std::endl << std::endl;
+    swap(thingA, thingB);
+    std::cout << "Thing A name: " << thingA.name << std::endl;
+    std::cout << "Thing B name: " << thingB.name << std::endl << std::endl;
+
+    std::cout << "Max: " << max(thingA, thingB).name << std::endl;
+    std::cout << "Min: " << min(thingA, thingB).name << std::endl;
+}
+*/

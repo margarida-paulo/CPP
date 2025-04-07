@@ -9,19 +9,19 @@ template <class T>
 Array<T>::Array(): _array(new T[0]()), _size(0){}
 
 template <class T>
-Array<T>::Array(unsigned int n): _array(new T[n]()), _size(n){
+Array<T>::Array(const unsigned int n): _array(new T[n]()), _size(n){
 }
 
 template <class T>
-Array<T>::Array(Array &other): _array(new T[other._size]()), _size(other._size){
-    if (&other == this)
-        return;
+Array<T>::Array(const Array &other): _array(new T[other._size]()), _size(other._size){
     for (unsigned int i = 0; i < other._size; i++)
         _array[i] = other[i];
 }
 
 template <class T>
-Array<T> &Array<T>::operator=(Array &other){
+Array<T> &Array<T>::operator=(const Array &other){
+    if (&other == this)
+        return *this;
     if (this->_size != other._size){
         delete[] _array;
         _array = new T[other._size];
@@ -38,13 +38,20 @@ Array<T>::~Array(){
 }
 
 template <class T>
-T &Array<T>::operator[](unsigned int position){
+T &Array<T>::operator[](const unsigned int position){
     if (position >= _size)
         throw ExceptionOutOfBounds();
     return _array[position];
 }
 
 template <class T>
-unsigned int Array<T>::size(){
+const T &Array<T>::operator[](const unsigned int position) const{
+    if (position >= _size)
+        throw ExceptionOutOfBounds();
+    return _array[position];
+}
+
+template <class T>
+unsigned int Array<T>::size() const{
     return _size;
 }

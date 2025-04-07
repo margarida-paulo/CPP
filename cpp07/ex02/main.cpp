@@ -25,7 +25,7 @@ int main(){
     }
 
 
-    std::cout << "Copy filled array to empty array" << std::endl;
+    std::cout << "Copy filled array to empty array" << std::endl   ;
 
     emptyArray = filledArray;
 
@@ -38,6 +38,14 @@ int main(){
     Array <std::string> copyArray(emptyArray);
     std::cout << "copyArray size = " << copyArray.size() << std::endl;
     std::cout << "copyArray position 0: " << copyArray[0] << std::endl;
-    std::cout << "copyArray position 1: " << copyArray[1] << std::endl << std::endl;  
+    std::cout << "copyArray position 1: " << copyArray[1] << std::endl << std::endl; 
+
+    std::cout << "Trying to access const Array" << std::endl;
+
+    const Array<int> arrayOfInts(5);
+    std::cout << "Position 0: " << arrayOfInts[0] << std::endl;
+    //std::cout << "Trying to write";
+    //arrayOfInts[0] = 50;
+    //std::cout << "Position 0: " << arrayOfInts[0] << std::endl;  
 
 }
