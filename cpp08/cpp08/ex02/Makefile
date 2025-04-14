@@ -1,12 +1,12 @@
-NAME = ex01
+NAME = ex02
 
 CPP = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-FILES = main.cpp Span.cpp
+FILES = main.cpp
 
-HEADERS = Span.hpp
+HEADERS = MutantStack.hpp
 
 all: ${NAME}
 

@@ -13,6 +13,8 @@ all: ${NAME}
 ${NAME}: ${FILES} ${HEADERS}
 	${CPP} ${FLAGS} ${FILES} -o ${NAME}
 
+clean:
+
 fclean:
 	rm ${NAME}
 
