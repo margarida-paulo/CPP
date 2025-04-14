@@ -24,6 +24,10 @@ class Span{
             virtual const char* what() const throw();
         };
 
+        class NotEnoughElements : public std::exception{
+            virtual const char* what() const throw();
+        };
+
         int shortestSpan() const;
 
         int longestSpan() const;
