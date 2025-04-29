@@ -138,21 +138,6 @@ const char* BitcoinExchange::WrongFormatFileException::what() const throw(){
     return errorInFile.c_str();
 }
 
-/* std::vector<std::string> split(std::string &str, std::string &delimiter){
-    std::vector<std::string> finalStrings;
-    std::string stringVersion = str;
-
-    size_t begin = 0;
-    size_t end = stringVersion.find(delimiter);
-    while (end != std::string::npos) {
-        finalStrings.push_back(stringVersion.substr(begin, end - begin));
-        begin = end + delimiter.size();
-        end = stringVersion.find(delimiter, begin);
-    }
-    finalStrings.push_back(stringVersion.substr(begin, stringVersion.size()));
-    return finalStrings;
-} */
-
  std::string *splitIntoNumber(std::string &str, std::string &delimiter, size_t numberOfParts){
     std::string *finalStrings = new std::string[3];
     std::string stringVersion = str;
