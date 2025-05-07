@@ -53,3 +53,14 @@ void Span::fillSpan(std::vector<int>::iterator beginning, std::vector<int>::iter
     }
     data.insert(data.end(), beginning, end);
 }
+
+unsigned int Span::getSize() const{
+    return size;
+}
+
+void Span::printList() const{
+    std::cout << GREEN << "Numbers list:" << RESET <<std::endl;
+    for (unsigned int i = 0; i < size; i++)
+        std::cout << data[i] << " ";
+    std::cout << std::endl << std::endl;
+}
